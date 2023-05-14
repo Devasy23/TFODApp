@@ -12,7 +12,37 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+input[type="file"] {
+  display: block;
+  margin: 0 auto;
+}
 
+input[type="file"]::-webkit-file-upload-button {
+  border: none;
+  background: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+input[type="file"]::-moz-file-upload-button {
+  border: none;
+  background: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+input[type="file"]::-ms-file-upload-button {
+  border: none;
+  background: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

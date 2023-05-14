@@ -54,18 +54,21 @@ function App() {
         3:{name:'laptop', color:'lime'},
         4:{name:'papercup', color:'blue'},
     }
-      const drawRect = (ctx, ymin, xmin, height, width, label) => {
-        // ctx.drawImage(image, 0, 0);
+      const drawRect = (ctx, ymin, xmin, height, width, label,percentage, labelMap) => {
+        const labelIndex = parseInt(label);
+        const labelName = labelMap[labelIndex].name;
+        const color = labelMap[labelIndex].color;
+
         ctx.beginPath();
         ctx.rect(xmin, ymin, width, height);
-        ctx.strokeStyle = "red";
+        ctx.strokeStyle = color;
         ctx.lineWidth = 2;
         ctx.fillStyle = "rgba(0, 0, 0, 0)";
         ctx.fill();
         ctx.stroke();
-        ctx.fillStyle = "#000000";
+        ctx.fillStyle = color;
         ctx.font = "14px Arial";
-        ctx.fillText(label, xmin + 5, ymin + 20);
+        ctx.fillText(`${labelName} ${percentage}`,xmin + 5, ymin + 20);
       };
       const ctx = canvasRef.current.getContext("2d");
       ctx.drawImage(image, 0, 0);
@@ -83,7 +86,7 @@ function App() {
             xmin,
             ymax - ymin,
             xmax - xmin,
-            `${classes[0][i]} ${Math.round(scores[0][i] * 100)}%`
+            `${classes[0][i]}`, ` ${Math.round(scores[0][i] * 100)}%`, labelMap
           );
         }
       });
